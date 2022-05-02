@@ -41,9 +41,8 @@
     End Function
 
     'ENLACE ///////////////////////////////////////////////////////////////////////////////////////////
-    
-     Private Sub EJERCICIO6ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EJERCICIO6ToolStripMenuItem.Click
+        
         TextBox8.Text = ejercicio6(TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text)
         TextBox9.Text = ejercicio6t(TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text)
-    End Sub
+ 
     
