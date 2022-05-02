@@ -41,7 +41,6 @@
     End Function
 
     'ENLACE ///////////////////////////////////////////////////////////////////////////////////////////
-        
         TextBox8.Text = ejercicio6(TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text)
         TextBox9.Text = ejercicio6t(TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text)
  
