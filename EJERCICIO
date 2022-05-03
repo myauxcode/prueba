@@ -1,5 +1,86 @@
 
-ESPERA ESTOY HACIENDO.. EN 25 MINUTOS ACTIALIZAS LA PAGINA
+ 'PREGUNTA ///////////////////////////////////////////////////////////////////////////////////
+    'parametros:
+    'n= ENE  
+    'x= EXIS   
+    'via= VALOR INCIAL
+    Public Function Fact(n As Integer) As Double
+        Dim f As Double
+        Dim i As Integer
+        If n <> 0 Then
+            f = 1
+            For i = Math.Abs(n) To 1 Step -1
+                f = f * i
+            Next
+            If n < 0 Then
+                f = -f
+            End If
+        Else
+            f = 1
+        End If
+        Return f
+    End Function
+
+    Public Function EJERCICIO(n As Double, x As Double, via As Double) As Double
+        Dim ba As Boolean
+        ba = True
+        Dim ba2 As Boolean
+        ba2 = True
+        Dim i, i2 As Double
+        i = -1
+        i2 = 0
+        Dim f As Double
+        f = 0
+        Do
+            i = i + 1
+            If ba = True Then
+                f = f + ((Fact(x + i) + (Math.PI / via)) / (via ^ (n - i))) ^ (1 / (n - i))
+            Else
+                f = f - ((Fact(x + i) + (Math.PI / via)) / (via ^ (n - i))) ^ (1 / (n - i))
+            End If
+            i2 = i2 + 1
+            via = via + (2 ^ i2)
+            ba = Not ba
+        Loop Until (n - i) = 2
+        Return f
+    End Function
+
+    Public Function EJERCICIOTEXTO(n As Double, x As Double, via As Double) As String
+        Dim ba As Boolean
+        ba = True
+        Dim ba2 As Boolean
+        ba2 = True
+        Dim i, i2 As Double
+        i = -1
+        i2 = 0
+        Dim f As String
+        f = ""
+        Do
+            i = i + 1
+            If ba2 = True Then
+                f = f + " + ((π! + (π / " + Str(via) + "))/(" + Str(via) + "^n)) ^ (1 / (n - " + Str(i) + "))"
+                ba2 = False
+            Else
+                If ba = True Then
+                    f = f + " + (((x+ " + Str(i) + ")! + (π/" + Str(via) + "))/(" + Str(via) + " ^ (n-" + Str(i) + "))) ^ (1/(n - " + Str(i) + "))"
+                Else
+                    f = f + " - (((x+ " + Str(i) + ")! + (π/" + Str(via) + "))/(" + Str(via) + " ^ (n-" + Str(i) + "))) ^ (1/(n - " + Str(i) + "))"
+                End If
+
+            End If
+            i2 = i2 + 1
+            via = via + (2 ^ i2)
+            ba = Not ba
+        Loop Until (n - i) = 2
+        Return f
+
+    End Function
+
+
+    'ENLACE ///////////////////////////////////////////////////////////////////////////////////
+         TextBox4.Text = EJERCICIO(TextBox1.Text, TextBox2.Text, TextBox3.Text)
+        TextBox5.Text = EJERCICIOTEXTO(TextBox1.Text, TextBox2.Text, TextBox3.Text)
+
 
 
 
