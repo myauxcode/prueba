@@ -1,1 +1,40 @@
-# prueba
+ 'PREGUNTA ///////////////////////////////////////
+ Public Function ejercicio6(n As Integer, vim As Double, m As Double, vi2 As Double, r2 As Double) As Double
+        Dim t, t2, vi, r As Double
+        Dim s As Double
+        t = 0
+        s = 0
+        vi = 1
+        r = 1
+        vim = vim / m
+        For i = 1 To n
+            vim = vim * m
+            t = vi + (i - 1) * r
+            t2 = vi2 + (i - 1) * r2
+            s = s + (Math.Log(vim) + t) / (t2)
+        Next
+        Return s
+
+    End Function
+
+    Public Function ejercicio6t(n As Integer, vim As Double, m As Double, vi2 As Double, r2 As Double) As String
+        Dim t, t2, vi, r As Double
+        Dim s As String
+        t = 0
+        s = ""
+        vi = 1
+        r = 1
+        vim = vim / m
+        For i = 1 To n
+            vim = vim * m
+            t = vi + (i - 1) * r
+            t2 = vi2 + (i - 1) * r2
+            s = s + "(Ln(" + Str(vim) + ") + " + Str(t) + ") / (" + Str(t2) + ") + "
+        Next
+        Return s
+    End Function
+    
+     'ENLACE ///////////////////////////////////////////////////////////////////////////////////////////
+        TextBox6.Text = ejercicio6(TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text)
+        TextBox7.Text = ejercicio6t(TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text)
+    
