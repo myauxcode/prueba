@@ -1,40 +1,107 @@
- 'PREGUNTA ///////////////////////////////////////
- Public Function ejercicio6(n As Integer, vim As Double, m As Double, vi2 As Double, r2 As Double) As Double
-        Dim t, t2, vi, r As Double
+  'PREGUNTA/////////////////////
+
+    Public Function Fact(n As Integer) As Double
+        Dim f As Double
+        Dim i As Integer
+        If n <> 0 Then
+            f = 1
+            For i = Math.Abs(n) To 1 Step -1
+                f = f * i
+            Next
+            If n < 0 Then
+                f = -f
+            End If
+        Else
+            f = 1
+        End If
+        Return f
+    End Function
+
+
+
+    Public Function examen(n As Integer, a As Double, b As Double, vid As Double, d As Double, x As Double) As Double
         Dim s As Double
-        t = 0
-        s = 0
-        vi = 1
+        Dim vi, r, i2, c, t As Double
+        Dim ban As Boolean
+        ban = True
+
+
+        vi = 0
         r = 1
-        vim = vim / m
+        vid = vid * d
+        i2 = 1
+
         For i = 1 To n
-            vim = vim * m
-            t = vi + (i - 1) * r
-            t2 = vi2 + (i - 1) * r2
-            s = s + (Math.Log(vim) + t) / (t2)
+            c = a + b
+            a = b
+            b = c
+
+            vid = vid / d
+            t = vi + (i2 - 1) * r
+            i2 = i2 + 1
+
+            If ban = True Then
+
+                s = s + ((vid + (x ^ t)) / (c + Fact(t))) ^ (1 / c)
+            Else
+
+                s = s - ((vid + (x ^ t)) / (c + Fact(t))) ^ (1 / c)
+
+            End If
+            ban = Not ban
+
+
+
         Next
+
         Return s
 
     End Function
 
-    Public Function ejercicio6t(n As Integer, vim As Double, m As Double, vi2 As Double, r2 As Double) As String
-        Dim t, t2, vi, r As Double
-        Dim s As String
-        t = 0
-        s = ""
-        vi = 1
+
+    Public Function examentexto(n As Integer, a As Double, b As Double, vid As Double, d As Double, x As Double) As String
+        Dim s As String = ""
+        Dim vi, r, i2, c, t As Double
+        Dim ban As Boolean
+        ban = True
+
+
+        vi = 0
         r = 1
-        vim = vim / m
+        vid = vid * d
+        i2 = 1
+
         For i = 1 To n
-            vim = vim * m
-            t = vi + (i - 1) * r
-            t2 = vi2 + (i - 1) * r2
-            s = s + "(Ln(" + Str(vim) + ") + " + Str(t) + ") / (" + Str(t2) + ") + "
+            c = a + b
+            a = b
+            b = c
+
+            vid = vid / d
+            t = vi + (i2 - 1) * r
+            i2 = i2 + 1
+
+            If ban = True Then
+
+                s = s + " + ((" + Str(vid) + " + (x ^ " + Str(t) + ")) / (" + Str(c) + " + " + Str(t) + "!)) ^ (1 / " + Str(c) + ")"
+            Else
+
+                s = s + " - ((" + Str(vid) + " + (x ^ " + Str(t) + ")) / (" + Str(c) + " + " + Str(t) + "!)) ^ (1 / " + Str(c) + ")"
+
+            End If
+            ban = Not ban
+
         Next
+
         Return s
+
     End Function
     
-     'ENLACE ///////////////////////////////////////////////////////////////////////////////////////////
-        TextBox6.Text = ejercicio6(TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text)
-        TextBox7.Text = ejercicio6t(TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text)
     
+        'ENLACE/////////
+
+        TextBox7.Text = examen(TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text)
+        TextBox8.Text = examentexto(TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text)
+
+
+
+
